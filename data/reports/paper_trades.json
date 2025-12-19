@@ -1,0 +1,146 @@
+[
+    {
+        "timestamp": "2025-11-20 18:48:32.551915",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 10,
+        "price": 3144.8,
+        "total_value": 31448.0
+    },
+    {
+        "timestamp": "2025-11-21 15:41:12.571439",
+        "symbol": "INFY.NS",
+        "action": "BUY",
+        "quantity": 10,
+        "price": 1545.0,
+        "total_value": 15450.0
+    },
+    {
+        "timestamp": "2025-11-21 16:17:10.933671",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 5,
+        "price": 3150.6,
+        "total_value": 15753.0
+    },
+    {
+        "timestamp": "2025-11-21 16:50:09.705149",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 5,
+        "price": 3150.6,
+        "total_value": 15753.0
+    },
+    {
+        "timestamp": "2025-11-21 17:42:22.444159",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 10,
+        "price": 3150.6,
+        "total_value": 31506.0
+    },
+    {
+        "timestamp": "2025-12-05 12:29:07.221746",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 5,
+        "price": 3259.0,
+        "total_value": 16295.0
+    },
+    {
+        "timestamp": "2025-12-05 12:29:45.417692",
+        "symbol": "TCS.NS",
+        "action": "SELL",
+        "quantity": 5,
+        "price": 3258.800048828125,
+        "total_value": 16294.000244140625
+    },
+    {
+        "timestamp": "2025-12-05 12:38:41.151990",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 1,
+        "price": 3258.300048828125,
+        "total_value": 3258.300048828125
+    },
+    {
+        "timestamp": "2025-12-05 12:39:16.211268",
+        "symbol": "IDEA.NS",
+        "action": "BUY",
+        "quantity": 1,
+        "price": 10.739999771118164,
+        "total_value": 10.739999771118164
+    },
+    {
+        "timestamp": "2025-12-05 12:56:30.278803",
+        "symbol": "IDEA.NS",
+        "action": "SELL",
+        "quantity": 1,
+        "price": 10.720000267028809,
+        "total_value": 10.720000267028809
+    },
+    {
+        "timestamp": "2025-12-05 13:32:10.243811",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 1,
+        "price": 3240.0,
+        "total_value": 3240.0
+    },
+    {
+        "timestamp": "2025-12-05 13:34:34.188882",
+        "symbol": "TCS.NS",
+        "action": "SELL",
+        "quantity": 1,
+        "price": 3239.699951171875,
+        "total_value": 3239.699951171875
+    },
+    {
+        "timestamp": "2025-12-05 13:34:50.972225",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 1,
+        "price": 3239.60009765625,
+        "total_value": 3239.60009765625
+    },
+    {
+        "timestamp": "2025-12-05 14:01:26.478422",
+        "symbol": "TCS.NS",
+        "action": "BUY",
+        "quantity": 1,
+        "price": 3238.39990234375,
+        "total_value": 3238.39990234375
+    },
+    {
+        "timestamp": "2025-12-05 14:02:25.512720",
+        "symbol": "RELIANCE.NS",
+        "action": "BUY",
+        "quantity": 2,
+        "price": 1537.699951171875,
+        "total_value": 3075.39990234375
+    },
+    {
+        "timestamp": "2025-12-05 15:13:27.269516",
+        "symbol": "TCS.NS",
+        "action": "SELL",
+        "quantity": 1,
+        "price": 3242.0,
+        "total_value": 3242.0
+    },
+    {
+        "timestamp": "2025-12-05 15:50:07.598108",
+        "symbol": "SUZLON.NS",
+        "action": "BUY",
+        "quantity": 3,
+        "price": 51.7400016784668,
+        "total_value": 155.2200050354004
+    },
+    {
+        "timestamp": "2025-12-05 16:00:53.817268",
+        "symbol": "SUZLON.NS",
+        "action": "SELL",
+        "quantity": 3,
+        "price": 51.7400016784668,
+        "total_value": 155.2200050354004
+    }
+]

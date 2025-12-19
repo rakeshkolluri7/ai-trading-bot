@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+yfinance
+pandas
+ta
+scikit-learn
+joblib
+upstox-python-sdk
+numpy
+requests
+beautifulsoup4
+vaderSentiment
+feedparser
+python-dotenv
+streamlit
+plotly
