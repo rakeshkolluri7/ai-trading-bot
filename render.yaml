@@ -26,6 +26,6 @@ services:
         fromService:
           type: web
           name: ai-trading-backend
-          property: url
+          property:  host
       - key: MOBILE_API_KEY
         sync: false
