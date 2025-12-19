@@ -1,9 +1,8 @@
 services:
-  # 1. Backend API (FastAPI)
   - type: web
     name: ai-trading-backend
     env: python
-        plan: free
+    plan: free
     buildCommand: "./render-build.sh"
     startCommand: "uvicorn src.server:app --host 0.0.0.0 --port $PORT"
     envVars:
@@ -16,11 +15,10 @@ services:
       - key: TELEGRAM_CHAT_ID
         sync: false
 
-  # 2. Frontend Dashboard (Streamlit)
   - type: web
     name: ai-trading-dashboard
     env: python
-        plan: free
+    plan: free
     buildCommand: "./render-build.sh"
     startCommand: "streamlit run dashboard.py --server.port $PORT --server.address 0.0.0.0"
     envVars:
@@ -28,6 +26,6 @@ services:
         fromService:
           type: web
           name: ai-trading-backend
-          property:  host
+          property: host
       - key: MOBILE_API_KEY
         sync: false
