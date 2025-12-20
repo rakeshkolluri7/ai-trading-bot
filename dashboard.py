@@ -34,7 +34,7 @@ st.sidebar.caption("v2.0 Professional Edition")
 
 # System Check
 try:
-    requests.get(f"{BASE_URL}/")
+    requests.get(f"{BASE_URL}/", timeout=3)
     st.sidebar.success("🟢 System Online")
 except:
     st.sidebar.error("🔴 System Offline")
@@ -43,7 +43,7 @@ st.sidebar.divider()
 
 # --- PENDING APPROVALS ---
 try:
-    pending_resp = requests.get(f"{BASE_URL}/trade/pending", headers=HEADERS)
+    pending_resp = requests.get(f"{BASE_URL}/trade/pending", headers=HEADERS, timeout=3)
     if pending_resp.status_code == 200:
         pending_orders = pending_resp.json()
         if pending_orders:
@@ -55,12 +55,12 @@ try:
                     
                     c1, c2 = st.columns(2)
                     if c1.button("✅", key=f"app_{order['id']}", help="Approve"):
-                        res = requests.post(f"{BASE_URL}/trade/approve/{order['id']}", headers=HEADERS)
+                        res = requests.post(f"{BASE_URL}/trade/approve/{order['id']}", headers=HEADERS, timeout=5)
                         if res.status_code == 200: st.success("Approved!")
                         st.experimental_rerun()
                         
                     if c2.button("❌", key=f"rej_{order['id']}", help="Reject"):
-                         requests.post(f"{BASE_URL}/trade/reject/{order['id']}", headers=HEADERS)
+                         requests.post(f"{BASE_URL}/trade/reject/{order['id']}", headers=HEADERS, timeout=5)
                          st.warning("Rejected.")
                          st.experimental_rerun()
 except Exception as e:
@@ -84,7 +84,7 @@ with st.sidebar.expander("🛒 Manual Execution", expanded=True):
              hist = ticker.history(period='1d')
              curr_price = hist['Close'].iloc[-1]
              
-             resp = requests.post(f"{BASE_URL}/trade/{sym}?action={man_action}&qty={man_qty}&price={curr_price}", headers=HEADERS)
+             resp = requests.post(f"{BASE_URL}/trade/{sym}?action={man_action}&qty={man_qty}&price={curr_price}", headers=HEADERS, timeout=10)
              if resp.status_code == 200:
                  st.success("Order Placed!")
              else:
@@ -97,7 +97,7 @@ selected_sector = st.sidebar.selectbox("🔎 Scanner Sector", ["All", "Bank", "I
 
 # --- HEADER STATISTICS ---
 try:
-    bal_resp = requests.get(f"{BASE_URL}/balance", headers=HEADERS)
+    bal_resp = requests.get(f"{BASE_URL}/balance", headers=HEADERS, timeout=3)
     if bal_resp.status_code == 200:
         bal = bal_resp.json()
         roi = ((bal['total_equity'] - bal['initial_balance']) / bal['initial_balance']) * 100
@@ -118,7 +118,7 @@ with t1:
     col_scan_btn, col_last_scan = st.columns([1, 4])
     if col_scan_btn.button("Run Full Scan", type="primary"):
         with st.spinner(f"AI Scanning {selected_sector}..."):
-             resp = requests.get(f"{BASE_URL}/scan?sector={selected_sector}", headers=HEADERS)
+             resp = requests.get(f"{BASE_URL}/scan?sector={selected_sector}", headers=HEADERS, timeout=60)
              if resp.status_code == 200:
                  st.session_state['scan_data'] = resp.json()
     
@@ -152,7 +152,7 @@ with t1:
                 
                 c3.metric("Confidence", f"{best['score']}%")
                 if c3.button(f"Buy {best['symbol']}", key="buy_best"):
-                     requests.post(f"{BASE_URL}/trade/{best['symbol']}?action=BUY&qty=10&price={best['price']}&stop_loss={best.get('stop_loss')}&target={best.get('target')}", headers=HEADERS)
+                     requests.post(f"{BASE_URL}/trade/{best['symbol']}?action=BUY&qty=10&price={best['price']}&stop_loss={best.get('stop_loss')}&target={best.get('target')}", headers=HEADERS, timeout=10)
                      st.success("Trade Executed!")
             
             # Cost Analysis Section
@@ -182,7 +182,7 @@ with t2:
     if st.button("Analyze"):
         with st.spinner("Crunching Numbers..."):
             sym = sym_in if sym_in.endswith(".NS") else f"{sym_in}.NS"
-            resp = requests.get(f"{BASE_URL}/analyze/{sym}", headers=HEADERS)
+            resp = requests.get(f"{BASE_URL}/analyze/{sym}", headers=HEADERS, timeout=60)
             if resp.status_code == 200:
                 report = resp.json()
                 
@@ -255,7 +255,7 @@ with t2:
 with t3:
     st.subheader("Order Book")
     try:
-        ledger = requests.get(f"{BASE_URL}/ledger", headers=HEADERS).json()
+        ledger = requests.get(f"{BASE_URL}/ledger", headers=HEADERS, timeout=5).json()
         if ledger:
             st.dataframe(pd.DataFrame(ledger).iloc[::-1], use_container_width=True)
         else:
