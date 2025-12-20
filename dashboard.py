@@ -10,7 +10,11 @@ from datetime import datetime
 import os
 # --- CONFIGURATION ---
 # Default to local, but allow Cloud URL override
-BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000") 
+# Default to local, but allow Cloud URL override
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
+if not API_URL.startswith("http"):
+    API_URL = f"http://{API_URL}"
+BASE_URL = API_URL 
 HEADERS = {"x-api-key": os.getenv("MOBILE_API_KEY", "secret_mobile_key_123")}
 
 st.set_page_config(page_title="QuantAI Pro Terminal", page_icon="🏦", layout="wide", initial_sidebar_state="expanded")
